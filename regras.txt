@@ -1,0 +1,10 @@
+1º A fita só pode aceitar 0 e 1 como entrada, mas pode retornar [a-zA-Z]
+2º A entrada das instruções pode ser com qualquer letra entre [a-zA-Z]
+3º A instrução final é "qf" e a inicial é "qi"
+4º Todo estado precisa começar com q
+
+qi;a;b;qf
+
+(q0,a)=(q2,x,D);(qi,qi)=(q0,qi,D)
+
+(qi,qi)=(q0,qi,D);(q1,A)=(qx,X,E);(q2,X)=(q2,X,D);(q0,A)=(q2,X,D);(q1,B)=(q1,B,D);(qx,A)=(qx,A,E);(q0,B)=(q1,X,D);(q1,X)=(q1,X,D);(qx,B)=(qx,B,E);(q0,X)=(q0,X,D);(q2,A)=(q2,A,D);(qx,X)=(q0,X,D);(q2,B)=(qx,X,E);(q0,qf)=(qf,qf,D)

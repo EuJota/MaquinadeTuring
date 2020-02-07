@@ -1,0 +1,2 @@
+1º Tem que existir uma condição de parada
+2º A primeira condição tem que ser a de inicio
