@@ -1,0 +1,3 @@
+qi;A;B;A;B;B;A;qf
+(qi,qi)=(q0,qi,D);(q1,A)=(qx,X,E);(q2,X)=(q2,X,D);(q0,A)=(q2,X,D);(q1,B)=(q1,B,D);(qx,A)=(qx,A,E);(q0,B)=(q1,X,D);(q1,X)=(q1,X,D);(qx,B)=(qx,B,E);(q0,X)=(q0,X,D);(q2,A)=(q2,A,D);(qx,X)=(q0,X,D);(q2,B)=(qx,X,E);(q0,qf)=(qf,qf,D)
+teste funcionando

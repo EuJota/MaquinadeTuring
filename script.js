@@ -7,11 +7,11 @@ function traduzir(){ //mudar para converter array
     let arrFita = txtFita.split(";")
     let arrInstrucoes = txtInstrucoes.split("=").toString().split(";")
 
-    let stInicial = "qi";
+    cond1 = verificaInicioEFim(arrFita[0], arrFita.length, arrFita) // isso aqui ta errado a posicao final
+    //arrFita.forEach(escreverNaTela)
 
-    //cond1 = verificaInicioEFim(arrFita[0], arrFita[arrFita.length]) // isso aqui ta errado a posicao final
-    //cond1 === 1 ? fazComparacoes(stInicial) : alert("sua fita não tem começo ou final, reveja") //passar no ok uma funcao de verificação 
-    
+    console.log("size", arrFita.length)
+
     re = /([^a-zA-Z0-9])+/g;
     let newArr = arrInstrucoes.map(function(item, index){
         return item.toString().replace(re," ").split(",").toString().split(" ");
@@ -28,13 +28,23 @@ function traduzir(){ //mudar para converter array
     }
 
     //console.log(newArr[newArr.length-1][4]) - converter parar a fita (pegar inicio e fim)
-
-    fazComparacoes(arrFita, newArr);
+    newArr.forEach(tabelaInstrucoes)
+    
+    cond1 === 1 ? fazComparacoes(arrFita, newArr) : alert("sua fita não tem começo ou final, reveja") //passar no ok uma funcao de verificação 
+    
+    //fazComparacoes(arrFita, newArr);
 }
 
-function verificaInicioEFim(ini, fim){
-    if(ini==="qi" && fim==="qf")
-        return 1
+function verificaInicioEFim(ini, fim, arrFita){
+    let cont=0
+    parada = "qf"
+    if(ini==="qi")
+        while(cont<fim){
+            if(arrFita[cont].toString() === parada)
+                return 1
+            else
+                cont++
+        }
     else 
         return 0;
 }
@@ -47,14 +57,15 @@ function fazComparacoes(arrFita, newArr){
     let estadoAtual = "qi";
     let i=0, encontrou = 0;
 
+
     while(arrFita[ponteiroFita].toString()!="qf"){
         for(i;i<newArr.length;i++){
             if(arrFita[ponteiroFita].toString()==newArr[i][1].toString() && estadoAtual==newArr[i][0].toString()){
                 estadoAtual = newArr[i][2].toString();
                 arrFita[ponteiroFita] = newArr[i][3];
                 encontrou=1;
-                
-                if(newArr[i][4].toString()=="D"){
+
+                if(newArr[i][4].toString()=="D"){ 
                     ponteiroFita+=1;
                     if(newArr[i][4].toString()=="D" && arrFita[ponteiroFita].toString()=="qf"){
                         ponteiroFita+=0
@@ -62,7 +73,7 @@ function fazComparacoes(arrFita, newArr){
                     }
                 }else if(newArr[i][4].toString()=="E" && ponteiroFita>0)
                     ponteiroFita-=1;
-            }
+            }  
         }
 
         if(encontrou==1){
@@ -75,7 +86,35 @@ function fazComparacoes(arrFita, newArr){
         }
     }
 
-    alert(arrFita)
-    console.log(arrFita);
+    //alert(arrFita)
+    //console.log(arrFita);
+
+    //arrFita.forEach(escreverNaTela);
+    arrFita.forEach(tabelaNovaFita)
 }
 
+
+function escreverNaTela(item){
+    let li = document.createElement("h1")
+    let texto=document.createTextNode(item);
+
+    document.getElementById('fita-alterando').appendChild(li)
+    document.getElementById('fita-alterando').appendChild(texto)
+}
+
+
+function tabelaInstrucoes(item){
+    let tr = document.createElement("tr")
+    let texto=document.createTextNode(item);
+
+    document.getElementById('tb-instrucoes').appendChild(tr)
+    document.getElementById('tb-instrucoes').appendChild(texto)
+}
+
+function tabelaNovaFita(item){
+    let td = document.createElement("td")
+    let texto=document.createTextNode(item);
+
+    document.getElementById('tb-traducao').appendChild(td)
+    document.getElementById('tb-traducao').appendChild(texto)
+}

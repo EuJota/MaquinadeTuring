@@ -12,6 +12,7 @@
         width: 100%;
         }
     </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <input id="txtFita" type="text" placeholder="Entre com a fita">
@@ -19,6 +20,29 @@
     <input id="txtInstrucoes" type="text" placeholder="Entre com as instruções">
     <br/>
     <button id="btnTraduzir" onclick="traduzir()">traduzir</button>
+
+    <div class="container">
+        <div>
+            <table border="1" id="tb-instrucoes">
+                <thead>
+                    Instruções
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+    
+            <table border="1" id="tb-traducao">
+                <thead>
+                    Fita Traduzida
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h1 id="fita-alterando"></h1>
 
     <script src="script.js"></script>
 </body>
