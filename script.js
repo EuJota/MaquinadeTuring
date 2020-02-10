@@ -8,7 +8,7 @@ function traduzir(){ //mudar para converter array
     let arrInstrucoes = txtInstrucoes.split("=").toString().split(";")
 
     cond1 = verificaInicioEFim(arrFita[0], arrFita.length, arrFita) // isso aqui ta errado a posicao final
-    //arrFita.forEach(escreverNaTela)
+    arrFita.forEach(escreverNaTela)
 
     console.log("size", arrFita.length)
 
@@ -27,12 +27,9 @@ function traduzir(){ //mudar para converter array
         }      
     }
 
-    //console.log(newArr[newArr.length-1][4]) - converter parar a fita (pegar inicio e fim)
     newArr.forEach(tabelaInstrucoes)
     
-    cond1 === 1 ? fazComparacoes(arrFita, newArr) : alert("sua fita não tem começo ou final, reveja") //passar no ok uma funcao de verificação 
-    
-    //fazComparacoes(arrFita, newArr);
+    cond1 === 1 ? fazComparacoes(arrFita, newArr) : alert("POR FAVOR, REVEJA SUA FITA!!") //passar no ok uma funcao de verificação 
 }
 
 function verificaInicioEFim(ini, fim, arrFita){
@@ -81,7 +78,7 @@ function fazComparacoes(arrFita, newArr){
             encontrou=0
         }else{
             arrFita[ponteiroFita]="qf"
-            alert("Sua instrucao nao existe")
+            alert("REVEJA SUA INSTRUÇÃO!!")
             break;
         }
     }
@@ -93,15 +90,13 @@ function fazComparacoes(arrFita, newArr){
     arrFita.forEach(tabelaNovaFita)
 }
 
-
 function escreverNaTela(item){
-    let li = document.createElement("h1")
+    let td = document.createElement("td")
     let texto=document.createTextNode(item);
 
-    document.getElementById('fita-alterando').appendChild(li)
-    document.getElementById('fita-alterando').appendChild(texto)
+    document.getElementById('tb-fita-principal').appendChild(td)
+    document.getElementById('tb-fita-principal').appendChild(texto)
 }
-
 
 function tabelaInstrucoes(item){
     let tr = document.createElement("tr")

@@ -4,46 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Máquina de Turing</title>
     <style>
-
         input[type=text] {
-        height: 40px;
+        height: 60px;
         width: 100%;
         }
     </style>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
 </head>
 <body>
-    <input id="txtFita" type="text" placeholder="Entre com a fita">
-    <br/>
-    <input id="txtInstrucoes" type="text" placeholder="Entre com as instruções">
-    <br/>
-    <button id="btnTraduzir" onclick="traduzir()">traduzir</button>
-
     <div class="container">
-        <div>
-            <table border="1" id="tb-instrucoes">
-                <thead>
-                    Instruções
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
-    
-            <table border="1" id="tb-traducao">
-                <thead>
-                    Fita Traduzida
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
+
+        <h2 id="txt-title">Máquina de Turing</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <p/>
+                <textarea name="" id="txtFita" cols="20" rows="10" placeholder="Entre com a fita"></textarea>
+                <p/>
+            </div>
+            
+            <div class="col-lg-6">
+                <textarea name="" id="txtInstrucoes" cols="30" rows="10" placeholder="Entre com as instruções"></textarea>
+                <p/>
+            </div>
+           
+            <div class="col-lg-6">
+                <button class="btn btn-primary" id="btnTraduzir" onclick="traduzir()">Traduzir Fita</button>
+                <p/>
+            </div>
         </div>
+        
+    
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table-instrucoes" border="1" id="tb-instrucoes">
+                    <thead>
+                        <h6 id="txt-instrucoes">Instruções</h6>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <div  class="col-lg-6">
+                <table class="table-principal" border="1" id="tb-fita-principal">
+                    <thead>
+                        <h6 id="txt-fita-principal">Fita Principal</h6>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+                <p/>
+                <table class="table-traducao" border="1" id="tb-traducao">
+                    <thead>
+                        <h6 id="txt-fita-traduzida">Fita Traduzida</h6>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
     </div>
-    <h1 id="fita-alterando"></h1>
+    
 
     <script src="script.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>
