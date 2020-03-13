@@ -8,9 +8,7 @@ function traduzir(){ //mudar para converter array
     let arrInstrucoes = txtInstrucoes.split("=").toString().split(";")
 
     cond1 = verificaInicioEFim(arrFita[0], arrFita.length, arrFita) // isso aqui ta errado a posicao final
-    arrFita.forEach(escreverNaTela)
-
-    console.log("size", arrFita.length)
+    //arrFita.forEach(escreverNaTela)
 
     re = /([^a-zA-Z0-9])+/g;
     let newArr = arrInstrucoes.map(function(item, index){
@@ -27,8 +25,8 @@ function traduzir(){ //mudar para converter array
         }      
     }
 
-    newArr.forEach(tabelaInstrucoes)
-    
+    //newArr.forEach(tabelaInstrucoes)
+
     cond1 === 1 ? fazComparacoes(arrFita, newArr) : alert("POR FAVOR, REVEJA SUA FITA!!") //passar no ok uma funcao de verificação 
 }
 
@@ -47,8 +45,6 @@ function verificaInicioEFim(ini, fim, arrFita){
 }
 
 function fazComparacoes(arrFita, newArr){
-    console.log(arrFita)
-    console.log(newArr)
 
     let ponteiroFita=0;
     let estadoAtual = "qi";
@@ -60,6 +56,8 @@ function fazComparacoes(arrFita, newArr){
             if(arrFita[ponteiroFita].toString()==newArr[i][1].toString() && estadoAtual==newArr[i][0].toString()){
                 estadoAtual = newArr[i][2].toString();
                 arrFita[ponteiroFita] = newArr[i][3];
+                //ESSE CONSOLE LOG TA FAZENDO O QUE DEVE SER FEITO NAS TELA SÓ QUE SEM O TIME
+                console.log(arrFita.toString(),( newArr[i]).toString())
                 encontrou=1;
 
                 if(newArr[i][4].toString()=="D"){ 
@@ -87,29 +85,29 @@ function fazComparacoes(arrFita, newArr){
     //console.log(arrFita);
 
     //arrFita.forEach(escreverNaTela);
-    arrFita.forEach(tabelaNovaFita)
+    //arrFita.forEach(tabelaNovaFita)
 }
 
-function escreverNaTela(item){
-    let td = document.createElement("td")
-    let texto=document.createTextNode(item);
+// function escreverNaTela(item){
+//     let td = document.createElement("td")
+//     let texto=document.createTextNode(item);
 
-    document.getElementById('tb-fita-principal').appendChild(td)
-    document.getElementById('tb-fita-principal').appendChild(texto)
-}
+//     document.getElementById('tb-fita-principal').appendChild(td)
+//     document.getElementById('tb-fita-principal').appendChild(texto)
+// }
 
-function tabelaInstrucoes(item){
-    let tr = document.createElement("tr")
-    let texto=document.createTextNode(item);
+// function tabelaInstrucoes(item){
+//     let tr = document.createElement("tr")
+//     let texto=document.createTextNode(item);
 
-    document.getElementById('tb-instrucoes').appendChild(tr)
-    document.getElementById('tb-instrucoes').appendChild(texto)
-}
+//     document.getElementById('tb-instrucoes').appendChild(tr)
+//     document.getElementById('tb-instrucoes').appendChild(texto)
+// }
 
-function tabelaNovaFita(item){
-    let td = document.createElement("td")
-    let texto=document.createTextNode(item);
+// function tabelaNovaFita(item){
+//     let td = document.createElement("td")
+//     let texto=document.createTextNode(item);
 
-    document.getElementById('tb-traducao').appendChild(td)
-    document.getElementById('tb-traducao').appendChild(texto)
-}
+//     document.getElementById('tb-traducao').appendChild(td)
+//     document.getElementById('tb-traducao').appendChild(texto)
+// }
